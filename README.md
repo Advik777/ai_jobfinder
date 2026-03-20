@@ -7,19 +7,21 @@
 
 An AI-powered system that matches your resume to real internships and generates a personalized roadmap to close your skill gaps — fully local, no API keys.
 
+
 💡 Features
 
-📄 Upload PDF resume & extract skills
+  📄 Upload PDF resume & extract skills
 
-🔎 Scrape real jobs (Indeed, ZipRecruiter, Glassdoor)
+  🔎 Scrape real jobs (Indeed, ZipRecruiter, Glassdoor)
 
-🧠 Semantic matching using embeddings + FAISS
+  🧠 Semantic matching using embeddings + FAISS
 
-📊 Match score + matched & missing skills
+  📊 Match score + matched & missing skills
 
-🧭 AI-generated roadmap using Llama 3.1 8B
+  🧭 AI-generated roadmap using Llama 3.1 8B
 
-🔐 100% local (runs via Ollama)
+  🔐 100% local (runs via Ollama)
+  
 
 📸 Screenshots
 
@@ -36,36 +38,38 @@ Roadmap
 ![Roadmap](screenshots/roadmap.png)
 
 
+
 🧩 Usage
 
-Upload your resume (PDF)
+  Upload your resume (PDF)
 
-Search for internships
+  Search for internships
 
-View ranked jobs with match scores
+  View ranked jobs with match scores
 
-Analyze missing skills
+  Analyze missing skills
 
-Generate a roadmap for any job
+  Generate a roadmap for any job
 
-Track and manage saved roadmaps
+  Track and manage saved roadmaps
+  
 
 🛠 Tech Stack
 
-Python 3.11+
+  Python 3.11+
 
-FastAPI — Backend
+  FastAPI — Backend
 
-Next.js + Tailwind CSS — Frontend
+  Next.js + Tailwind CSS — Frontend
 
-Llama 3.1 (Ollama) — LLM
+  Llama 3.1 (Ollama) — LLM
 
-nomic-embed-text — Embeddings
+  nomic-embed-text — Embeddings
 
-FAISS — Vector search
+  FAISS — Vector search
 
-python-jobspy — Job scraping
+  python-jobspy — Job scraping
 
-pdfplumber — PDF parsing
+  pdfplumber — PDF parsing
 
-SQLite — Database
+  SQLite — Database
