@@ -1,6 +1,8 @@
-🧠 AI Resume Matcher & Roadmap Generator
+# 🧠 AI Resume Matcher
 
-
+[![Python](https://img.shields.io/badge/Python-3.11-blue)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688)](https://fastapi.tiangolo.com/)
+[![Llama](https://img.shields.io/badge/LLM-Llama%203.1-purple)](https://ollama.com/)
 
 
 
