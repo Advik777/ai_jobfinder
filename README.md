@@ -1,117 +1,71 @@
+🧠 AI Resume Matcher & Roadmap Generator
 
 
-⚡️ AI Resume Matcher & Career Roadmap Generator
 
-Turn your resume into real opportunities — and a clear path to get there.
 
-🚀 Overview
 
-This project is a full-stack AI system that:
 
-📄 Understands your resume
+An AI-powered system that matches your resume to real internships and generates a personalized roadmap to close your skill gaps — fully local, no API keys.
 
-🔎 Finds real internship listings
+💡 Features
 
-🧠 Intelligently ranks them using embeddings
+📄 Upload PDF resume & extract skills
 
-📊 Shows exactly where you stand
+🔎 Scrape real jobs (Indeed, ZipRecruiter, Glassdoor)
 
-🧭 Builds a personalized roadmap to close your skill gaps
+🧠 Semantic matching using embeddings + FAISS
 
-All of this runs locally — no API keys required.
+📊 Match score + matched & missing skills
 
-🧠 Core Idea
+🧭 AI-generated roadmap using Llama 3.1 8B
 
-Most job platforms tell you what you qualify for.
+🔐 100% local (runs via Ollama)
 
-This project tells you:
+📸 Screenshots
 
-What you're missing — and exactly how to fix it.
+Home
 
-🔥 Features
+![Homepage](screenshots/homepage.png)
 
-📄 Resume Intelligence
+Results
 
-Upload a PDF resume
+![Results](screenshots/results.png)
 
-Extracts and analyzes text
+Roadmap
 
-Detects technical skills automatically
+![Roadmap](screenshots/roadmap.png)
 
-🔎 AI Job Matching
 
-Scrapes real listings from:
+🧩 Usage
 
-Indeed
+Upload your resume (PDF)
 
-ZipRecruiter
+Search for internships
 
-Glassdoor
+View ranked jobs with match scores
 
-Uses semantic embeddings (nomic-embed-text)
+Analyze missing skills
 
-Ranks using cosine similarity + FAISS
+Generate a roadmap for any job
 
-💡 Output per job:
+Track and manage saved roadmaps
 
-Match score
+🛠 Tech Stack
 
-Matched skills
+Python 3.11+
 
-Missing skills
+FastAPI — Backend
 
-🧭 Roadmap Generator (Game-Changer)
+Next.js + Tailwind CSS — Frontend
 
-Save any job → Generate a personalized skill roadmap using Llama 3.1 8B
+Llama 3.1 (Ollama) — LLM
 
-Each roadmap includes:
+nomic-embed-text — Embeddings
 
-🚨 Missing skills (High / Medium / Low priority)
+FAISS — Vector search
 
-📚 Learning resources (courses, docs, books, practice)
+python-jobspy — Job scraping
 
-⏳ Time estimates per skill
+pdfplumber — PDF parsing
 
-💼 Experience gap suggestions
-
-✍️ Clean 2-line summary
-
-🔐 Fully Local AI Stack
-
-No OpenAI / paid APIs
-
-Runs entirely via Ollama
-
-Privacy-friendly + cost-free
-
-⚙️ Tech Stack
-
-🖥️ Frontend
-
-Next.js
-
-Tailwind CSS
-
-Built using Claude Code
-
-⚡ Backend
-
-Python
-
-FastAPI
-
-🤖 AI / ML
-
-LLM: Llama 3.1 8B (Ollama)
-
-Embeddings: nomic-embed-text (768-dim)
-
-Vector DB: FAISS
-
-📊 Data Layer
-
-Job scraping: python-jobspy
-
-PDF parsing: pdfplumber
-
-Database: SQLite
+SQLite — Database
