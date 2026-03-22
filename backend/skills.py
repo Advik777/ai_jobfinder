@@ -1,3 +1,4 @@
+# This file contains a predefined list of skills and a function to extract those skills from a given text.
 SKILLS = [
     # Tech
     "python", "javascript", "typescript", "java", "c++", "sql", "react",

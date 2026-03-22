@@ -7,21 +7,31 @@ MODEL = "nomic-embed-text"
 DIM = 768
 
 def embed(text: str) -> np.ndarray:
-    text = text.replace("\n", " ").strip()[:4000]
+    # Clean and truncate aggressively
+    text = " ".join(text.split())  # normalize whitespace
+    text = text[:2000]             # hard limit
+    text = text.encode("ascii", errors="ignore").decode()  # strip non-ascii
+    
     try:
         r = httpx.post(
             f"{OLLAMA_URL}/api/embeddings",
             json={"model": MODEL, "prompt": text},
-            timeout=120        # increased timeout
+            timeout=120
         )
-        vec = np.array(r.json()["embedding"], dtype="float32")
+        data = r.json()
+        if "embedding" not in data:
+            print(f"No embedding in response: {data}")
+            return np.zeros(DIM, dtype="float32")
+        vec = np.array(data["embedding"], dtype="float32")
+        if vec.shape[0] != DIM:
+            print(f"Wrong dim: {vec.shape}, returning zeros")
+            return np.zeros(DIM, dtype="float32")
         faiss.normalize_L2(vec.reshape(1, -1))
+        print(f"Embedding dim: {vec.shape}")
         return vec
     except Exception as e:
         print(f"Embedding error: {e}")
-        # Return a zero vector instead of crashing
-        vec = np.zeros(DIM, dtype="float32")
-        return vec
+        return np.zeros(DIM, dtype="float32")
 
 def build_index(vectors: list[np.ndarray]) -> faiss.IndexFlatIP:
     index = faiss.IndexFlatIP(DIM)
@@ -31,5 +41,7 @@ def build_index(vectors: list[np.ndarray]) -> faiss.IndexFlatIP:
 
 def search(index: faiss.IndexFlatIP, query_vec: np.ndarray, k: int):
     k = min(k, index.ntotal)
-    scores, indices = index.search(query_vec.reshape(1, -1), k)
+    # Reshape and ensure correct dimension
+    query_vec = query_vec.flatten()[:DIM].reshape(1, -1)
+    scores, indices = index.search(query_vec, k)
     return indices[0], scores[0]
